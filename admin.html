@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Ninja Admin Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .user-info {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>User Statistics</h2>
+        <p>Total Users: <span id="total-users">0</span></p>
+        <p>Active Users: <span id="active-users">0</span></p>
+        <p>Inactive Users: <span id="inactive-users">0</span></p>
+        
+        <h2>Individual Users</h2>
+        <div id="user-list"></div>
+    </div>
+
+    <script>
+        // Sample user data
+        var users = [
+            { id: 1, name: "User 1", state: "Active" },
+            { id: 2, name: "User 2", state: "Inactive" },
+            { id: 3, name: "User 3", state: "Active" }
+            // Add more users as needed
+        ];
+
+        // Display user statistics
+        document.getElementById("total-users").textContent = users.length;
+        var activeUsers = users.filter(user => user.state === "Active").length;
+        var inactiveUsers = users.filter(user => user.state === "Inactive").length;
+        document.getElementById("active-users").textContent = activeUsers;
+        document.getElementById("inactive-users").textContent = inactiveUsers;
+
+        // Display individual users
+        var userList = document.getElementById("user-list");
+        users.forEach(user => {
+            var userInfo = document.createElement("div");
+            userInfo.classList.add("user-info");
+            userInfo.innerHTML = "<p>ID: " + user.id + "</p>" +
+                                 "<p>Name: " + user.name + "</p>" +
+                                 "<p>Status: " + user.state + "</p>";
+            userList.appendChild(userInfo);
+        });
+    </script>
+</body>
+</html>
