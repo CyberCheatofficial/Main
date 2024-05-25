@@ -1,21 +1,36 @@
-body {
-    background-color: blue;
-    color: white;
-    font-family: Arial, sans-serif;
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
-header {
-    padding: 20px;
-    text-align: center;
+.background {
+    background-color: black;
+    background-image: url('stars.jpg'); /* Assuming you have an image named 'stars.jpg' for the background */
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .content {
-    padding: 20px;
+    text-align: center;
+    color: white;
 }
 
-footer {
-    background-color: #333;
+.button {
+    display: inline-block;
+    background-color: #7289DA;
     color: white;
-    padding: 10px;
-    text-align: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #677BC4;
 }
